@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowRight, Code2, Send, FileText, Cpu, Zap, Activity } from 'lucide-react';
 import ResumeModal from './ResumeModal';
-
+import profileImg from '../assets/profile.jpg';
 const roles = [
   'MERN Stack Developer',
   'Full-Stack Web Developer',
