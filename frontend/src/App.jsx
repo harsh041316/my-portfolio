@@ -1,47 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import TechStack from './components/TechStack';
+import TechConstellation from './components/TechConstellation';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
-import CyberCursor from './components/CyberCursor';
-import ScrollProgress from './components/ScrollProgress';
+import BackToTop from './components/BackToTop';
+import CommandMenu from './components/CommandMenu';
+import ResumeModal from './components/ResumeModal';
 
 export default function App() {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
   return (
     <div
       style={{
         backgroundColor: '#050816',
-        minHeight: '100vh',
         color: '#ffffff',
-        overflowX: 'hidden',
+        minHeight: '100vh',
+        width: '100%',
         position: 'relative',
+        overflowX: 'hidden',
+        boxSizing: 'border-box',
       }}
     >
-      {/* UI/UX Upgrades */}
-      <CyberCursor />
-      <ScrollProgress />
-      <Navbar />
+      {/* Top Navigation Bar */}
+      <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
-      {/* Main Portfolio Sections */}
+      {/* Main Page Content */}
       <main
         style={{
-          maxWidth: '1200px',
+          maxWidth: '1280px',
           margin: '0 auto',
           padding: '0 24px',
-          boxSizing: 'border-box',
-          position: 'relative',
-          zIndex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '60px',
         }}
       >
-        <Hero />
-        <TechStack />
+        <Hero onOpenResume={() => setIsResumeOpen(true)} />
+        <TechConstellation />
         <Projects />
         <Contact />
       </main>
 
-      <Footer />
+      {/* Floating Interactive Utilities */}
+      <BackToTop />
+      <CommandMenu onOpenResume={() => setIsResumeOpen(true)} />
+
+      {/* Global Modals */}
+      <ResumeModal
+        isOpen={isResumeOpen}
+        onClose={() => setIsResumeOpen(false)}
+      />
     </div>
   );
 }
