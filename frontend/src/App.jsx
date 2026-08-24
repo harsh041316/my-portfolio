@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Tech from './components/Tech';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import ResumeModal from './components/ResumeModal';
@@ -32,6 +33,7 @@ export default function App() {
         }}
       >
         <Hero onOpenResume={() => setIsResumeOpen(true)} />
+        <Tech />
         <Projects />
         <Contact />
       </main>
