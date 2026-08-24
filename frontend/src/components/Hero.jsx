@@ -318,7 +318,7 @@ export default function Hero() {
                 }}
               >
                 <img
-                  src="/profile.png"
+                  src={profileImg}
                   alt="Harsh Patel"
                   style={{
                     width: '100%',
